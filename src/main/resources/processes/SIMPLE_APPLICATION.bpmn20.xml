@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef" exporter="Flowable Open Source Modeler" exporterVersion="6.8.0">
+  <process id="simple_application" name="SIMPLE_APPLICATION" isExecutable="true">
+    <startEvent id="startEvent1" name="Stworzenie wniosku" flowable:formFieldValidation="true">
+      <extensionElements>
+        <flowable:formProperty id="contractId" name="contractId" type="string" required="true"></flowable:formProperty>
+        <flowable:formProperty id="applicationType" name="applicationType" type="string" required="true"></flowable:formProperty>
+        <flowable:formProperty id="costType" name="costType" type="string" required="true"></flowable:formProperty>
+        <flowable:formProperty id="description" name="description" type="string" required="true"></flowable:formProperty>
+      </extensionElements>
+    </startEvent>
+    <userTask id="sid-2E744CA1-DCC4-479F-A1A9-C24A0DED5068" name="Akceptacja" flowable:formFieldValidation="true">
+      <extensionElements>
+        <flowable:formProperty id="accepted" name="accepted" type="boolean" required="true"></flowable:formProperty>
+      </extensionElements>
+    </userTask>
+    <sequenceFlow id="sid-DEB376D7-0A51-4B8C-A0AB-8F97D1367A99" sourceRef="startEvent1" targetRef="sid-2E744CA1-DCC4-479F-A1A9-C24A0DED5068"></sequenceFlow>
+    <endEvent id="sid-032EEFE5-716A-45C4-BB52-5A4E0295FBDA" name="Koniec procesu"></endEvent>
+    <sequenceFlow id="sid-B2466347-B4D7-4493-8BDA-2B70139AE9D2" sourceRef="sid-2E744CA1-DCC4-479F-A1A9-C24A0DED5068" targetRef="sid-032EEFE5-716A-45C4-BB52-5A4E0295FBDA"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_simple_application">
+    <bpmndi:BPMNPlane bpmnElement="simple_application" id="BPMNPlane_simple_application">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="224.99999523162882" y="162.99999306996727"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-2E744CA1-DCC4-479F-A1A9-C24A0DED5068" id="BPMNShape_sid-2E744CA1-DCC4-479F-A1A9-C24A0DED5068">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-032EEFE5-716A-45C4-BB52-5A4E0295FBDA" id="BPMNShape_sid-032EEFE5-716A-45C4-BB52-5A4E0295FBDA">
+        <omgdc:Bounds height="28.0" width="28.0" x="464.9999901453662" y="163.99999652438723"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-DEB376D7-0A51-4B8C-A0AB-8F97D1367A99" id="BPMNEdge_sid-DEB376D7-0A51-4B8C-A0AB-8F97D1367A99" flowable:sourceDockerX="15.0" flowable:sourceDockerY="15.0" flowable:targetDockerX="50.0" flowable:targetDockerY="40.0">
+        <omgdi:waypoint x="254.9499941500203" y="177.99999386692105"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="177.9999973346029"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-B2466347-B4D7-4493-8BDA-2B70139AE9D2" id="BPMNEdge_sid-B2466347-B4D7-4493-8BDA-2B70139AE9D2" flowable:sourceDockerX="50.0" flowable:sourceDockerY="40.0" flowable:targetDockerX="14.0" flowable:targetDockerY="14.0">
+        <omgdi:waypoint x="419.9499998397738" y="177.99999840568208"></omgdi:waypoint>
+        <omgdi:waypoint x="464.9999901453662" y="177.99999696920193"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
