@@ -9,7 +9,7 @@
         <flowable:formProperty id="description" name="description" type="string" required="true"></flowable:formProperty>
       </extensionElements>
     </startEvent>
-    <userTask id="sid-2E744CA1-DCC4-479F-A1A9-C24A0DED5068" name="Akceptacja" flowable:formFieldValidation="true">
+    <userTask id="sid-2E744CA1-DCC4-479F-A1A9-C24A0DED5068" name="Akceptacja" flowable:assignee="admin" flowable:formFieldValidation="true">
       <extensionElements>
         <flowable:formProperty id="accepted" name="accepted" type="boolean" required="true"></flowable:formProperty>
       </extensionElements>
