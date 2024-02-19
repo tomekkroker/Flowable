@@ -44,6 +44,30 @@ public class ApplicationController {
     return "Process started. Instance ID: " + processInstanceId;
   }
 
+  @PostMapping("/start-with-users")
+  public String startProcessWithUsers(@RequestBody Map<String, String> initialVariables) {
+    Map<String, Object> variables = new HashMap<>();
+    variables.put(ApplicationVariable.CONTRACT_ID.getName(), initialVariables.get("contractId"));
+    variables.put(ApplicationVariable.APPLICATION_TYPE.getName(), initialVariables.get("applicationType"));
+    variables.put(ApplicationVariable.COST_TYPE.getName(), initialVariables.get("costType"));
+    variables.put(ApplicationVariable.DESCRIPTION.getName(), initialVariables.get("description"));
+    // Convert the 'cost' variable from String to Long (or Integer, as needed)
+    String costString = initialVariables.get("cost");
+    Long cost = null;
+    if (costString != null) {
+      try {
+        cost = Long.parseLong(costString);
+      } catch (NumberFormatException e) {
+        // Handle the case where 'cost' is not a valid number
+        return "Invalid cost value";
+      }
+    }
+    variables.put(ApplicationVariable.COST.getName(), cost);
+
+    String processInstanceId = runtimeService.startProcessInstanceByKey("APPLICATION_WITH_USERS", variables).getId();
+    return "Process started. Instance ID: " + processInstanceId;
+  }
+
   @PostMapping("/accept/{taskId}")
   public String acceptForm(@PathVariable String taskId, @RequestParam boolean accepted) {
     Map<String, Object> variables = new HashMap<>();

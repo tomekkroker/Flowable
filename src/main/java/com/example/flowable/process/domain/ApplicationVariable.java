@@ -9,7 +9,12 @@ public enum ApplicationVariable {
   APPLICATION_TYPE("applicationType"),
   COST_TYPE("costType"),
   DESCRIPTION("description"),
-  ACCEPTED("accepted");
+  ACCEPTED("accepted"),
+
+  // APPLICATION WITH USERS
+
+  COST("cost");
+
 
   @Getter
   private final String name;
